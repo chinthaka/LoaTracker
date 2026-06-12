@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "LoaTracker.AppHost/LoaTracker.AppHost.csproj"
+  }
+}

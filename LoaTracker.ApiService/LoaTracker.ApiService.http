@@ -1,0 +1,23 @@
+###
+
+@HostAddress = https://localhost:7536
+#@HostAddress = https://app-loa-api-dev.azurewebsites.net
+
+
+POST {{HostAddress}}/loa
+Content-Type: application/json
+{
+	"AdviserName": "Chinthaka Kumarasiri",
+	"MemeberEmail": "chinthaka@icloud.com",
+	"SchemeName": "TestRun"
+}
+
+###
+#@trackingId = {{createRisk.response.body.$.trackingId}}
+
+
+GET {{HostAddress}}/loa/trackingId
+
+###
+
+GET {{HostAddress}}/
