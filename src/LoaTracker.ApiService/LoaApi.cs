@@ -1,5 +1,6 @@
 ﻿using Azure.Data.Tables;
 using Azure.Storage.Queues;
+using LoaTracker.ApiService.LoaAudit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
@@ -9,12 +10,14 @@ namespace LoaTracker.ApiService;
 
 public static class LoaApi
 {
+	public sealed class LoaApiLog;
 	public static IEndpointRouteBuilder MapLoaEndpoints(this IEndpointRouteBuilder app)
 	{
 		var loa = app.MapGroup("/loa").WithTags("Loa");
 
 		loa.MapPost("/", AddLoaRequest).WithName("SubmitLoaRequest");
 		loa.MapGet("/{trackingId}", GetLoaStatus).WithName("GetLoaStatus");
+		loa.MapUpdateLoaAudit();
 
 		return app;
 	}
@@ -24,7 +27,7 @@ public static class LoaApi
 		LoaRequest request,
 		QueueServiceClient queueClient,
 		TableServiceClient tableClient,
-		ILogger logger,
+		ILogger<LoaApiLog> logger,
 		CancellationToken cancellationToken)
 	{
 

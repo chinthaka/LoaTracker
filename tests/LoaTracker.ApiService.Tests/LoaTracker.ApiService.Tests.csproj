@@ -17,13 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\LoaTracker.ApiService\LoaTracker.ApiService.csproj" />
+    <ProjectReference Include="..\..\src\LoaTracker.ApiService\LoaTracker.ApiService.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="Azure" />
     <Using Include="Azure.Data.Tables" />
     <Using Include="Microsoft.AspNetCore.Http" />
+    <Using Include="Microsoft.Extensions.Logging" />
+    <Using Include="Microsoft.Extensions.Logging.Abstractions" />
     <Using Include="Microsoft.AspNetCore.Http.HttpResults" />
     <Using Include="Moq" />
     <Using Include="System.Linq.Expressions" />

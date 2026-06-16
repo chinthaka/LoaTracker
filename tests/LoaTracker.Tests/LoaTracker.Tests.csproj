@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LoaTracker.AppHost\LoaTracker.AppHost.csproj" />
+    <ProjectReference Include="..\..\src\LoaTracker.AppHost\LoaTracker.AppHost.csproj" />
   </ItemGroup>
 
   <ItemGroup>

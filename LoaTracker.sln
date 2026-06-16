@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.6.11723.189
 MinimumVisualStudioVersion = 17.8.0.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.AppHost", "LoaTracker.AppHost\LoaTracker.AppHost.csproj", "{65630202-F731-4B5D-BC5A-6C18A13915CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.AppHost", "src\LoaTracker.AppHost\LoaTracker.AppHost.csproj", "{65630202-F731-4B5D-BC5A-6C18A13915CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.ServiceDefaults", "LoaTracker.ServiceDefaults\LoaTracker.ServiceDefaults.csproj", "{16ECC59B-02E2-4277-AFF4-0955AA5BD36C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.ServiceDefaults", "src\LoaTracker.ServiceDefaults\LoaTracker.ServiceDefaults.csproj", "{16ECC59B-02E2-4277-AFF4-0955AA5BD36C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.ApiService", "LoaTracker.ApiService\LoaTracker.ApiService.csproj", "{A1C04B21-011B-4578-9BCF-CDE3DA9B1513}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.ApiService", "src\LoaTracker.ApiService\LoaTracker.ApiService.csproj", "{A1C04B21-011B-4578-9BCF-CDE3DA9B1513}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.Tests", "LoaTracker.Tests\LoaTracker.Tests.csproj", "{72848B74-9BBE-41A6-AF4A-57C485480167}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.Tests", "tests\LoaTracker.Tests\LoaTracker.Tests.csproj", "{72848B74-9BBE-41A6-AF4A-57C485480167}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoaTracker.Functions", "LoaTracker.Functions", "{6D89004E-A7AF-3472-AEC7-9FB598CF9F5A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoaTracker.Functions", "src\LoaTracker.Functions", "{6D89004E-A7AF-3472-AEC7-9FB598CF9F5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaTracker_Functions", "LoaTracker.Functions\LoaTracker_Functions.csproj", "{06FA675C-8376-4E64-B182-6BC6A68BBFD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaTracker_Functions", "src\LoaTracker.Functions\LoaTracker_Functions.csproj", "{06FA675C-8376-4E64-B182-6BC6A68BBFD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaTracker.ApiService.Tests", "tests\LoaTracker.ApiService.Tests\LoaTracker.ApiService.Tests.csproj", "{CADB0966-993C-4CAF-804E-EF2A0343221D}"
 EndProject

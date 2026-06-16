@@ -20,4 +20,12 @@ GET {{HostAddress}}/loa/trackingId
 
 ###
 
+PATCH {{HostAddress}}/loa/trackingId
+Content-Type: application/json
+{
+	"status": "UnderReview"
+}
+
+###
+
 GET {{HostAddress}}/

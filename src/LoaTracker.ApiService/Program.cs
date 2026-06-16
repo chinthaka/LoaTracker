@@ -3,6 +3,7 @@ using Azure.Data.Tables;
 using Azure.Identity;
 using Azure.Storage.Queues;
 using LoaTracker.ApiService;
+using LoaTracker.ApiService.LoaAudit;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton(ResolveQueueClient);
 builder.Services.AddSingleton(ResolveTableClient);
+builder.Services.AddSingleton<ILoaAuditService, LoaAuditService>();
 
 //var credential = new DefaultAzureCredential();
 
