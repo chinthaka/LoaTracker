@@ -1,6 +1,45 @@
 # LoaTracker
 
-LoaTracker is an API for submitting and tracking Letter of Authority (LoA) requests. Advisers submit a request via the API; the service records an audit entry, queues the request for processing, and exposes a status endpoint keyed by tracking ID.
+LoaTracker is an API for submitting and tracking Letter of Authority (LoA) requests. Advisers submit a request via the API; the service records an audit entry, queues the request for processing, and exposes a status endpoint keyed by tracking ID. A React page can upload the letter and show that status.
+
+## Run on Windows
+
+Install these and confirm each command prints a version:
+
+| Tool | Used for | Check |
+|---|---|---|
+| .NET 10 SDK | API, functions, and the Aspire AppHost | `dotnet --version` |
+| Node.js 22, with npm | React page | `node --version` |
+| Docker Desktop, Linux containers | Azurite storage emulator | `docker info` |
+| Azure Functions Core Tools 4 | Confirmation-email worker | `func --version` |
+
+Docker Desktop must be running before the AppHost starts. Azurite uses ports `10000`, `10001`, and `10002`.
+
+The confirmation email is sent by the functions worker. To send it, put a SendGrid key in `src/LoaTracker.Functions/local.settings.json`:
+
+```json
+"SendGridApiKey": "your-sendgrid-key"
+```
+
+Leave the value empty to run the page and the API without sending mail. The worker records a failure when it tries to send.
+
+From the repository root, the folder that contains `LoaTracker.sln`:
+
+```powershell
+dotnet run --project src/LoaTracker.AppHost
+```
+
+In Visual Studio, set `LoaTracker.AppHost` as the startup project and start it.
+
+The console prints the Aspire dashboard address, normally `https://localhost:17064`, and a login link. The browser opens the dashboard. When the `web` resource is running, open its endpoint. That page uploads a PDF, PNG, or JPEG and shows the tracking status. Aspire installs the React dependencies on the first start, so that start takes longer.
+
+Stop the app with Ctrl+C in the same terminal.
+
+Run the API tests with:
+
+```powershell
+dotnet test
+```
 
 ## API Endpoints
 
@@ -238,6 +277,8 @@ Content-Type: application/json
 
 | Path | Description |
 |---|---|
+| `src/LoaTracker.AppHost` | Aspire app that starts the API, the React page, functions, and storage |
+| `src/LoaTracker.Web` | React page for uploading a letter and reading its status |
 | `src/` | Application projects (API, Functions, AppHost, etc.) |
 | `tests/` | Unit and integration tests |
 | `LoaTracker.sln` | Solution file |
