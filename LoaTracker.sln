@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.ServiceDefaults"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.ApiService", "src\LoaTracker.ApiService\LoaTracker.ApiService.csproj", "{A1C04B21-011B-4578-9BCF-CDE3DA9B1513}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaTracker.Tests", "tests\LoaTracker.Tests\LoaTracker.Tests.csproj", "{72848B74-9BBE-41A6-AF4A-57C485480167}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoaTracker.Functions", "src\LoaTracker.Functions", "{6D89004E-A7AF-3472-AEC7-9FB598CF9F5A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoaTracker.Functions", "LoaTracker.Functions", "{6D89004E-A7AF-3472-AEC7-9FB598CF9F5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaTracker_Functions", "src\LoaTracker.Functions\LoaTracker_Functions.csproj", "{06FA675C-8376-4E64-B182-6BC6A68BBFD6}"
 EndProject
@@ -63,18 +61,6 @@ Global
 		{A1C04B21-011B-4578-9BCF-CDE3DA9B1513}.Release|x64.Build.0 = Release|Any CPU
 		{A1C04B21-011B-4578-9BCF-CDE3DA9B1513}.Release|x86.ActiveCfg = Release|Any CPU
 		{A1C04B21-011B-4578-9BCF-CDE3DA9B1513}.Release|x86.Build.0 = Release|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Debug|x64.Build.0 = Debug|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Debug|x86.Build.0 = Debug|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Release|x64.ActiveCfg = Release|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Release|x64.Build.0 = Release|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Release|x86.ActiveCfg = Release|Any CPU
-		{72848B74-9BBE-41A6-AF4A-57C485480167}.Release|x86.Build.0 = Release|Any CPU
 		{06FA675C-8376-4E64-B182-6BC6A68BBFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{06FA675C-8376-4E64-B182-6BC6A68BBFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06FA675C-8376-4E64-B182-6BC6A68BBFD6}.Debug|x64.ActiveCfg = Debug|Any CPU
