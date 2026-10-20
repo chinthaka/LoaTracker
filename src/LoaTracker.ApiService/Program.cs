@@ -1,6 +1,7 @@
 
 using Azure.Data.Tables;
 using Azure.Identity;
+using Azure.Storage.Blobs;
 using Azure.Storage.Queues;
 using LoaTracker.ApiService;
 using LoaTracker.ApiService.LoaAudit;
@@ -13,6 +14,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton(ResolveQueueClient);
 builder.Services.AddSingleton(ResolveTableClient);
+builder.Services.AddSingleton(ResolveBlobClient);
 builder.Services.AddSingleton<ILoaAuditService, LoaAuditService>();
 
 //var credential = new DefaultAzureCredential();
@@ -37,6 +39,23 @@ static TableServiceClient ResolveTableClient(IServiceProvider sp)
     if (Uri.TryCreate(raw, UriKind.Absolute, out var uri))
         return new TableServiceClient(uri, new Azure.Identity.DefaultAzureCredential());
     return new TableServiceClient(StripAspireKeys(raw, "TableName="));
+}
+
+static BlobServiceClient ResolveBlobClient(IServiceProvider sp)
+{
+    var raw = sp.GetRequiredService<IConfiguration>().GetConnectionString("blobs") ?? "";
+    if (Uri.TryCreate(raw, UriKind.Absolute, out var uri))
+        return new BlobServiceClient(uri, new Azure.Identity.DefaultAzureCredential());
+
+    string[] storageConnectionKeys =
+    [
+        "DefaultEndpointsProtocol", "AccountName", "AccountKey", "BlobEndpoint", "QueueEndpoint",
+        "TableEndpoint", "BlobSecondaryEndpoint", "QueueSecondaryEndpoint", "TableSecondaryEndpoint",
+        "EndpointSuffix", "SharedAccessSignature"
+    ];
+    var connectionString = string.Join(';', raw.Split(';').Where(part =>
+        storageConnectionKeys.Any(key => part.StartsWith(key + "=", StringComparison.OrdinalIgnoreCase))));
+    return new BlobServiceClient(connectionString);
 }
 
 builder.Services.AddLogging(logging =>
