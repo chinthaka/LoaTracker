@@ -241,3 +241,41 @@ Content-Type: application/json
 | `src/` | Application projects (API, Functions, AppHost, etc.) |
 | `tests/` | Unit and integration tests |
 | `LoaTracker.sln` | Solution file |
+
+## Next steps
+
+Extend the service from a request log into a tracked Letter of Authority workflow. Do the audit-trail work before a portal, extra email types, or provider integrations. Those later features depend on every event being stored and returned in order.
+
+### Make the audit trail trustworthy
+
+The audit table is the record of the case.
+
+- Give every event for one tracking id a unique partition key and row key. A status change on the same UTC day as submit currently reuses the submit key, so Table Storage rejects the write.
+- Store the function's `Processed` event on the same tracking id. It is written under a different row key today, so `GET /loa/{trackingId}` never returns it.
+- Keep the log append-only.
+- Replace the free-text status with a fixed set and the moves that are allowed: `Received`, `AwaitingConsent`, `SentToProvider`, `AwaitingProvider`, `InformationReceived`, `Completed`, `Rejected`, `Cancelled`.
+- Record who made each change.
+
+### Add the workflow after intake
+
+`ProcessLoaRequest` currently tells the member that a request arrived. The steps after that are consent and the chase.
+
+- Store the member's consent as its own event: when they agreed, by what means, and a hash or blob reference for the signed authority.
+- Put the signed document and any provider reply in Blob Storage. Keep only the reference on the audit row.
+- After consent, enqueue work to send the authority to the scheme and to chase it.
+- Raise a `ChaseDue` event from a timer when a case stays in `AwaitingProvider` past the agreed number of days. Each chase is another audit event.
+
+### Let an adviser list their cases
+
+`GET /loa/{trackingId}` serves a member who holds a link. An adviser needs their open cases, filtered by status and scheme.
+
+- Keep the table as the event log.
+- Add a query store keyed by adviser, updated on the same write path as each new event. The current table is partitioned by date and looked up by row key, so it cannot serve that list.
+- Require Entra ID for submit, list, and status changes.
+- Leave the member link as a limited read of their own case.
+
+### After the trail and the status rules
+
+- Send a notification for each transition, using templates and a configurable from-address.
+- Add an API version that corrects `MemeberEmail` and `MememberEmail` while the current clients keep working.
+- Report SLA figures from the audit log: time to consent, time with the provider, and number of chases.
