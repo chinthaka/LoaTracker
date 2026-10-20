@@ -13,4 +13,6 @@ public class LoaAutidEntity : ITableEntity
 	public required string AdviserName { get; init; }
 	public required string MememberEmail { get; init; }
 	public required string SchemeName { get; init; }
+	public string? DocumentFileName { get; init; }
+	public string? DocumentBlobName { get; init; }
 }

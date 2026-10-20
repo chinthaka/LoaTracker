@@ -36,16 +36,25 @@ var storage = builder
 
 var queues = storage.AddQueues("queues");
 var tables = storage.AddTables("tables");
+var blobs = storage.AddBlobs("blobs");
 
 
 // Api porject - reference both queue and table connections
 var api = builder.AddProject<Projects.LoaTracker_ApiService>("api")
 	.WithReference(queues)
 	.WithReference(tables)
+	.WithReference(blobs)
+	.WithExternalHttpEndpoints()
 	.WaitFor(storage);
 
 //queues.AddQueue("loa-requests");
 
+
+builder.AddViteApp("web", "../LoaTracker.Web")
+	.WithReference(api)
+	.WaitFor(api)
+	.WithExternalHttpEndpoints()
+	.PublishAsStaticWebsite("/loa", api);
 
 builder.AddAzureFunctionsProject<Projects.LoaTracker_Functions>("functions")
 	.WithHostStorage(storage)                                     

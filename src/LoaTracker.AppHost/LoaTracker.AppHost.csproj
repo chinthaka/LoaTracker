@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <UserSecretsId>85feb2f0-9043-4c37-a48f-9093267e570d</UserSecretsId>
+    <NoWarn>$(NoWarn);ASPIREJAVASCRIPT001</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.Azure.Functions" Version="13.3.0" />
     <PackageReference Include="Aspire.Hosting.Azure.Storage" Version="13.3.0" />
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.3.0" />
   </ItemGroup>
 
 </Project>

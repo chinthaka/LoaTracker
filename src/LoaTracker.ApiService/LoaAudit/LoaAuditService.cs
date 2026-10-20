@@ -50,7 +50,9 @@ internal sealed class LoaAuditService(
 			Status = status,
 			AdviserName = latest.AdviserName,
 			MememberEmail = latest.MememberEmail,
-			SchemeName = latest.SchemeName
+			SchemeName = latest.SchemeName,
+			DocumentFileName = latest.DocumentFileName,
+			DocumentBlobName = latest.DocumentBlobName
 		}, cancellationToken: cancellationToken);
 
 		logger.LogInformation(
