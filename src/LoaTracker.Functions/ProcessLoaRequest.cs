@@ -36,7 +36,7 @@ public class ProcessLoaRequest
 		// Send the confirmation email
 		//var msg = new SendGridMessage
 		//{
-		//	From = new EmailAddress("loa2@gmail.com", "LoA Tracker"),
+		//	From = new EmailAddress("loa-tracker@example.com", "LoA Tracker"),
 		//	Subject = $"LoA request received - {payload.TrackingId}"
 		//};
 		var htmlContent = "<strong>and easy to do anywhere with C#.</strong>";
@@ -48,7 +48,7 @@ public class ProcessLoaRequest
 			$"Tracking ID: {payload.TrackingId}\n\n" +
 			$"Punter Southall LoA Tracker (demo)";
 
-		var mssg = MailHelper.CreateSingleEmail(new EmailAddress("kumarasiri@gmail.com", "LoA Tracker"), new EmailAddress(payload.MemberEmail), subject, plainTextContent, htmlContent);
+		var mssg = MailHelper.CreateSingleEmail(new EmailAddress("loa-tracker@example.com", "LoA Tracker"), new EmailAddress(payload.MemberEmail), subject, plainTextContent, htmlContent);
 
 		var response = await _sendGrid.SendEmailAsync(mssg, ct);
 

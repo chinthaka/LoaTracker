@@ -26,8 +26,8 @@ Submits a new LoA request. On success the request is persisted to the `LoaAudit`
 
 ```json
 {
-  "AdviserName": "Chinthaka Kumarasiri",
-  "MemeberEmail": "chinthaka@icloud.com",
+  "AdviserName": "Jane Smith",
+  "MemeberEmail": "member@example.com",
   "SchemeName": "TestRun"
 }
 ```
