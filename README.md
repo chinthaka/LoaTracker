@@ -1,6 +1,6 @@
 # LoaTracker
 
-LoaTracker is an API for submitting and tracking Letter of Authority (LoA) requests. Advisers submit a request via the API; the service records an audit entry, queues the request for processing, and exposes a status endpoint keyed by tracking ID. A React page can upload the letter and show that status.
+LoaTracker is a system for submitting and tracking Letter of Authority (LoA) requests. Advisers submit a request via the API; the service records an audit entry, queues the request for processing, and exposes a status endpoint keyed by tracking ID. A React page can upload the letter and show that status.
 
 ## Run on Windows
 
