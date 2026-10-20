@@ -7,8 +7,8 @@
 POST {{HostAddress}}/loa
 Content-Type: application/json
 {
-	"AdviserName": "Chinthaka Kumarasiri",
-	"MemeberEmail": "chinthaka@icloud.com",
+	"AdviserName": "Test User",
+	"MemeberEmail": "sample@example.com",
 	"SchemeName": "TestRun"
 }
 
